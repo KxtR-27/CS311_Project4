@@ -1,6 +1,6 @@
 import TableEntry from "./TableEntry";
 
-const InstrumentTable = ({instruments}: {instruments: InstrumentWithID[]}) => {
+const InstrumentTable = ({ instruments }: { instruments: InstrumentWithID[] }) => {
 	return (
 		<table className="instrument-table">
 			<thead>
@@ -13,9 +13,17 @@ const InstrumentTable = ({instruments}: {instruments: InstrumentWithID[]}) => {
 				</tr>
 			</thead>
 			<tbody>
-				{instruments.map(instrument => {
-					return <TableEntry instrument={instrument} key={instrument._id} />;
-				})}
+				{instruments.length > 0 ? (
+					instruments.map(instrument => {
+						return <TableEntry instrument={instrument} key={instrument._id} />;
+					})
+				) : (
+					<tr>
+						<td className="none-found" colSpan={5}>
+							No jobs yet.
+						</td>
+					</tr>
+				)}
 			</tbody>
 		</table>
 	);

@@ -24,9 +24,7 @@ const InstrumentForm = () => {
 				if (CRUD.updateID) {
 					CRUD.UPDATE(formInstrument, CRUD.updateID);
 					CRUD.setUpdateID("");
-				}
-				else 
-					CRUD.CREATE(formInstrument);
+				} else CRUD.CREATE(formInstrument);
 
 				formRef.current.reset();
 			}}

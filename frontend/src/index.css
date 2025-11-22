@@ -9,3 +9,10 @@
 	position: relative;
 	box-sizing: border-box;
 }
+
+#root ~ * {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	position: absolute;
+}

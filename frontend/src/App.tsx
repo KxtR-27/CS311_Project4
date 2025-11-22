@@ -1,17 +1,17 @@
+import { useEffect, useState } from "react";
 import InstrumentForm from "./components/InstrumentForm";
 import InstrumentTable from "./components/InstrumentTable";
-import "./App.css";
-import { useEffect, useState } from "react";
-import Fetching from "./fetch-module";
-import CRUDContext from "./components/CRUDContext";
 import ExitUpdateButton from "./components/ExitUpdateButton";
+import CRUDContext from "./components/CRUDContext";
+import FetchModule from "./fetch-module";
+import "./App.css";
 
 const App = () => {
 	const [instruments, setInstruments] = useState<InstrumentWithID[]>([]);
 	const [updateID, setUpdateID] = useState("");
 
 	const createInstrument = async (instrument: Instrument) => {
-		await Fetching.create(instrument)
+		await FetchModule.create(instrument)
 			.then(() => readInstruments())
 			.catch(error => {
 				console.log(error);
@@ -19,7 +19,7 @@ const App = () => {
 	};
 
 	const readInstruments = async () => {
-		await Fetching.read()
+		await FetchModule.read()
 			.then(read => setInstruments(read))
 			.catch(error => {
 				console.log(error);
@@ -27,18 +27,20 @@ const App = () => {
 	};
 
 	const updateInstrument = async (instrument: Instrument, id: string) => {
-		await Fetching.update(instrument, id)
+		await FetchModule.update(instrument, id)
 			.then(() => readInstruments())
 			.catch(error => console.log(error));
 	};
 
 	const deleteInstrument = async (instrumentID: string) => {
-		await Fetching.delete(instrumentID)
+		await FetchModule.delete(instrumentID)
 			.then(() => readInstruments())
 			.catch(error => console.log(error));
 	};
 
-	useEffect(() => {readInstruments()}, [])
+	useEffect(() => {
+		readInstruments();
+	}, []);
 
 	const CRUD = {
 		CREATE: createInstrument,
@@ -48,7 +50,7 @@ const App = () => {
 
 		updateID: updateID,
 		setUpdateID: setUpdateID,
-	}
+	};
 
 	return (
 		<div className="app">

@@ -29,6 +29,7 @@ const InstrumentJob = mongoose.model("document", instrumentJob);
 
 // Create an instrument job
 app.post("/create", (req, res) => {
+	console.log(req)
 	const { instrument, owner, complete, cost } = req.body;
 
 	InstrumentJob.create({ instrument, owner, complete, cost })

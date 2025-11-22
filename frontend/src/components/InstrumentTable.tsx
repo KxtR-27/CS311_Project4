@@ -1,7 +1,6 @@
-import React from "react";
-import InstrumentItem from "./TableInstrument";
+import TableEntry from "./TableEntry";
 
-const InstrumentTable = ({ instruments }: { instruments: Instrument[] }) => {
+const InstrumentTable = ({instruments}: {instruments: InstrumentWithID[]}) => {
 	return (
 		<table className="instrument-table">
 			<thead>
@@ -14,10 +13,10 @@ const InstrumentTable = ({ instruments }: { instruments: Instrument[] }) => {
 				</tr>
 			</thead>
 			<tbody>
-                {instruments.map((instrument) => {
-                    return <InstrumentItem instrument={instrument}/>
-                })}
-            </tbody>
+				{instruments.map(instrument => {
+					return <TableEntry instrument={instrument} key={instrument._id} />;
+				})}
+			</tbody>
 		</table>
 	);
 };

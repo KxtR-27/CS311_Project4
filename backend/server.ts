@@ -19,39 +19,40 @@ mongoose.connect("mongodb://localhost:27017/project4");
 const instrumentJob = new mongoose.Schema({
 	instrument: String, // the instrument to refurbish
 	owner: String, // the owner of the instrument
-	ready: Boolean, // whether the instrument is refurbished and ready for return
+	complete: Boolean, // whether the instrument is refurbished
+	cost: Number,
 });
 
 const InstrumentJob = mongoose.model("document", instrumentJob);
 
 /* *** Implement database interaction *** */
 
-// Add instrument job
-app.post("/addInstrument", (req, res) => {
-	const { instrument, owner, ready } = req.body;
+// Create an instrument job
+app.post("/create", (req, res) => {
+	const { instrument, owner, complete, cost } = req.body;
 
-	InstrumentJob.create({ instrument, owner, ready })
+	InstrumentJob.create({ instrument, owner, complete, cost })
 		.then(() => res.status(200).send("Instrument logged!"))
 		.catch(error => res.status(500).send(error));
 });
 
-// Get all instrument jobs (for table in frontend)
-app.get("/getAllInstruments", async (_req, res) => {
+// Read all instrument jobs (for table in frontend)
+app.get("/read", async (_req, res) => {
 	await InstrumentJob.find()
 		.then(instrumentJob => res.status(200).send(instrumentJob))
 		.catch(error => res.status(500).send(error));
 });
 
-// Update existing instrument job
-app.post("/updateInstrument", async (req, res) => {
-	const { id, name, email } = req.body;
+// Update an existing instrument job
+app.post("/update", async (req, res) => {
+	const { id, name, email, complete, cost } = req.body;
 
-	await InstrumentJob.findByIdAndUpdate(id, { name, email }, { new: true })
+	await InstrumentJob.findByIdAndUpdate(id, { name, email, complete, cost }, { new: true })
 		.then(() => res.status(200).send("Instrument updated successfully."))
 		.catch(error => res.status(500).send(error));
 });
 
-// Remove/delete an instrument job
+// Delete an instrument job
 app.post("/delete", async (req, res) => {
 	const { id } = req.body;
 

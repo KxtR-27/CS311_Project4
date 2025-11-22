@@ -11,7 +11,7 @@ const TableEntry = ({ instrument }: { instrument: InstrumentWithID }) => {
 			<td>{instrument.complete ? "Complete" : "Incomplete"}</td>
 			<td>{instrument.cost}</td>
 			<td className="action">
-				<button className="update">Update</button>
+				<button className="update" onClick={() => CRUD.setUpdateID(instrument._id)}>Update</button>
 				<button className="delete" onClick={() => CRUD.DELETE(instrument._id)}>
 					Delete
 				</button>

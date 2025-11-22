@@ -4,9 +4,11 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Fetching from "./fetch-module";
 import CRUDContext from "./components/CRUDContext";
+import ExitUpdateButton from "./components/ExitUpdateButton";
 
 const App = () => {
 	const [instruments, setInstruments] = useState<InstrumentWithID[]>([]);
+	const [updateID, setUpdateID] = useState("");
 
 	const createInstrument = async (instrument: Instrument) => {
 		await Fetching.create(instrument)
@@ -24,8 +26,8 @@ const App = () => {
 			});
 	};
 
-	const updateInstrument = async (instrument: InstrumentWithID) => {
-		await Fetching.update(instrument)
+	const updateInstrument = async (instrument: Instrument, id: string) => {
+		await Fetching.update(instrument, id)
 			.then(() => readInstruments())
 			.catch(error => console.log(error));
 	};
@@ -43,6 +45,9 @@ const App = () => {
 		READ: readInstruments,
 		UPDATE: updateInstrument,
 		DELETE: deleteInstrument,
+
+		updateID: updateID,
+		setUpdateID: setUpdateID,
 	}
 
 	return (
@@ -50,6 +55,7 @@ const App = () => {
 			<CRUDContext.Provider value={CRUD}>
 				<h1>Instrument Refurbishing Orders</h1>
 				<InstrumentForm />
+				<ExitUpdateButton />
 				<InstrumentTable instruments={instruments} />
 			</CRUDContext.Provider>
 		</div>

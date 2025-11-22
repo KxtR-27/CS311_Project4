@@ -24,7 +24,7 @@ const fetchRead = async () => {
 	return data;
 };
 
-const fetchUpdate = async ({ instrument, owner, complete, cost, _id: id }: InstrumentWithID) => {
+const fetchUpdate = async ({ instrument, owner, complete, cost }: Instrument, id: string) => {
 	if (!id) return null;
 
 	const response = await fetch(`${BASE_URL}/update`, {

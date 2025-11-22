@@ -19,9 +19,15 @@ const InstrumentForm = () => {
 			ref={formRef}
 			onSubmit={e => {
 				e.preventDefault();
-				const formedInstrument: Instrument = { instrument, owner, complete, cost };
-				console.log(formedInstrument);
-				CRUD.CREATE(formedInstrument);
+				const formInstrument = { instrument, owner, complete, cost };
+
+				if (CRUD.updateID) {
+					CRUD.UPDATE(formInstrument, CRUD.updateID);
+					CRUD.setUpdateID("");
+				}
+				else 
+					CRUD.CREATE(formInstrument);
+
 				formRef.current.reset();
 			}}
 		>

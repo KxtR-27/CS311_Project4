@@ -1,4 +1,4 @@
-import { useState, useRef, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import CRUDContext from "./CRUDContext";
 
 const InstrumentForm = () => {
@@ -33,12 +33,12 @@ const InstrumentForm = () => {
 
 	const autofillForUpdate = () => {
 		if (!CRUD.updateTarget) return;
-		const { instrument, owner, complete, cost } = CRUD.updateTarget;
+		const target = CRUD.updateTarget;
 
-		setInstrument(instrument);
-		setOwner(owner);
-		setComplete(complete);
-		setCost(cost);
+		setInstrument(target.instrument);
+		setOwner(target.owner);
+		setComplete(target.complete);
+		setCost(target.cost);
 	};
 
 	useEffect(() => {

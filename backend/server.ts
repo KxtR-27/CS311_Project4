@@ -45,9 +45,9 @@ app.get("/read", async (_req, res) => {
 
 // Update an existing instrument job
 app.post("/update", async (req, res) => {
-	const { id, name, email, complete, cost } = req.body;
+	const { id, instrument, owner, complete, cost } = req.body;
 
-	await InstrumentJob.findByIdAndUpdate(id, { name, email, complete, cost }, { new: true })
+	await InstrumentJob.findByIdAndUpdate(id, { instrument, owner, complete, cost }, { new: true })
 		.then(() => res.status(200).send("Instrument updated successfully."))
 		.catch(error => res.status(500).send(error));
 });

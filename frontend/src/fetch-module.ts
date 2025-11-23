@@ -20,8 +20,6 @@ const fetchRead = async () => {
 };
 
 const fetchUpdate = async ({ instrument, owner, complete, cost }: Instrument, id: string) => {
-	if (!id) return null;
-
 	const response = await fetch(`${BASE_URL}/update`, {
 		method: "POST",
 		headers: { "Content-type": "application/json" },

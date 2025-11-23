@@ -13,17 +13,13 @@ const App = () => {
 	const createInstrument = async (instrument: Instrument) => {
 		await FetchModule.create(instrument)
 			.then(() => readInstruments())
-			.catch(error => {
-				console.log(error);
-			});
+			.catch(error => console.log(error));
 	};
 
 	const readInstruments = async () => {
 		await FetchModule.read()
 			.then(read => setInstruments(read))
-			.catch(error => {
-				console.log(error);
-			});
+			.catch(error => console.log(error));
 	};
 
 	const updateInstrument = async (instrument: Instrument, id: string) => {

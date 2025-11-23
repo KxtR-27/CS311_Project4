@@ -1,23 +1,90 @@
 :root {
+    --update-color: orange;
+    --delete-color: tomato;
+    --submit-color: limegreen;
+}
 
+body {
+    max-width: 900px;
+    margin: auto;
+}
+
+button, input[type="submit"] {
+    padding: 0.25em 0.5em;
+    border: none;
+    border-radius: 0.75em;
+
+    color: white;
+    font-weight: bold;
+}
+
+/* *** App *** */
+.app > * {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    
 }
 
 /* *** IntrumentForm *** */
 .instrument-form {
-    
+    }
+
+.instrument-form input[type="submit"] {
+    background-color: var(--submit-color);
+}
+
+.instrument-form input[type="submit"].update {
+    background-color: var(--update-color);
 }
 
 /* *** ExitUpdateButton *** */
 .exit-update-button {
-
+    background-color: slategray;
 }
 
 /* *** InstrumentTable *** */
 .instrument-table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
+tbody tr:nth-of-type(odd) {
+    background-color: whitesmoke;
+}
+
+th, td {
+    padding: 0.5em 0.1em;
+    border-width: 0;
+    text-align: center;
 }
 
 /* *** TableEntry *** */
 .table-entry {
+    border-top: 2px solid black;
+}
 
+.table-entry:not(.table-entry:last-of-type) {
+    border-bottom: 2px solid black;
+}
+
+.table-entry button {
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+td.action {
+    display: flex;
+    gap: 0.5em;
+    justify-content: center;
+}
+
+button.update {
+    background-color: var(--update-color);
+}
+
+button.delete {
+    background-color: var(--delete-color);
 }

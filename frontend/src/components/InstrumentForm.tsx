@@ -70,13 +70,15 @@ const InstrumentForm = () => {
 				onChange={e => setOwner(e.target.value)}
 				required
 			/>
-			<input
-				type="checkbox"
-				name="complete"
-				checked={complete}
-				onChange={() => setComplete(!complete)}
-			/>
-			<label htmlFor="complete">Complete?</label>
+			<div className="container">
+				<input
+					type="checkbox"
+					name="complete"
+					checked={complete}
+					onChange={() => setComplete(!complete)}
+				/>
+				<label htmlFor="complete">Complete?</label>
+			</div>
 			<input
 				type="number"
 				name="cost"
@@ -86,7 +88,7 @@ const InstrumentForm = () => {
 				onChange={e => setCost(parseFloat(e.target.value))}
 				required
 			/>
-			<input type="submit" value="SUBMIT" />
+			<input type="submit" value={CRUD.updateTarget ? "UPDATE" : "SUBMIT"} className={CRUD.updateTarget ? "update" : ""}/>
 		</form>
 	);
 };

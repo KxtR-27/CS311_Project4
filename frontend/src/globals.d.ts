@@ -16,8 +16,8 @@ declare global {
 		UPDATE: (instrument: Instrument, id: string) => Promise<void>;
 		DELETE: (instrumentID: string) => Promise<void>;
 
-		updateID: string;
-		setUpdateID: React.Dispatch<React.SetStateAction<string>>;
+		updateTarget: InstrumentWithID | null;
+		setUpdateTarget: React.Dispatch<React.SetStateAction<InstrumentWithID | null>>;
 	}
 }
 

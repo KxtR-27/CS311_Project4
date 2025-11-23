@@ -3,8 +3,8 @@ import CRUDContext from "./CRUDContext";
 
 const ExitUpdateButton = () => {
 	const CRUD = useContext(CRUDContext);
-	return CRUD.updateID ? (
-		<button className="exit-update-button" onClick={() => CRUD.setUpdateID("")}>
+	return CRUD.updateTarget ? (
+		<button className="exit-update-button" onClick={() => CRUD.setUpdateTarget(null)}>
 			YOU ARE IN UPDATE MODE. CLICK HERE TO EXIT.
 		</button>
 	) : (

@@ -8,7 +8,7 @@ import "./App.css";
 
 const App = () => {
 	const [instruments, setInstruments] = useState<InstrumentWithID[]>([]);
-	const [updateID, setUpdateID] = useState("");
+	const [updateTarget, setUpdateTarget] = useState<InstrumentWithID | null>(null);
 
 	const createInstrument = async (instrument: Instrument) => {
 		await FetchModule.create(instrument)
@@ -48,8 +48,8 @@ const App = () => {
 		UPDATE: updateInstrument,
 		DELETE: deleteInstrument,
 
-		updateID: updateID,
-		setUpdateID: setUpdateID,
+		updateTarget: updateTarget,
+		setUpdateTarget: setUpdateTarget,
 	};
 
 	return (

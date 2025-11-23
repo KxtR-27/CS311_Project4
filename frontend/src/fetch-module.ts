@@ -4,16 +4,11 @@ const BASE_URL = "http://localhost:8080";
 // not catching here because it's important for the App to handle the error
 
 const fetchCreate = async (instrument: Instrument) => {
-	console.log(JSON.stringify(instrument));
-
-	const input = {
+	const response = await fetch(`${BASE_URL}/create`, {
 		method: "POST",
 		headers: { "Content-type": "application/json" },
 		body: JSON.stringify(instrument),
-	};
-	console.log(input);
-
-	const response = await fetch(`${BASE_URL}/create`, input);
+	});
 	const data = await response.text();
 	return data;
 };

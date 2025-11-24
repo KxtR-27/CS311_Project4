@@ -5,7 +5,7 @@ const TableEntry = ({ instrument }: { instrument: InstrumentWithID }) => {
 	const CRUD = useContext(CRUDContext);
 
 	return (
-		<tr className="table-entry">
+		<tr className="table-entry" style={{backgroundColor: CRUD.updateTarget == instrument ? "peachpuff" : ""}}>
 			<td>{instrument.instrument}</td>
 			<td>{instrument.owner}</td>
 			<td className={instrument.complete ? "complete" : "incomplete"}>{instrument.complete ? "Complete" : "Incomplete"}</td>

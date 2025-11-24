@@ -35,15 +35,15 @@ const fetchDelete = async (id: string) => {
 		headers: { "Content-type": "application/json" },
 		body: JSON.stringify({ id }),
 	});
-	const data = await response.text();
+	const data = await response.json();
 	return data;
 };
 
-const FetchModule = {
+const API = {
 	create: fetchCreate,
 	read: fetchRead,
 	update: fetchUpdate,
 	delete: fetchDelete,
 };
 
-export default FetchModule;
+export default API;

@@ -57,6 +57,6 @@ app.post("/delete", async (req, res) => {
 	const { id } = req.body;
 
 	await InstrumentJob.findByIdAndDelete(id)
-		.then(() => res.status(200).send("Instrument deleted successfully."))
+		.then((deleted) => res.status(200).send(deleted))
 		.catch(error => res.status(500).send(error));
 });

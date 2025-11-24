@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import CRUDContext from "./CRUDContext";
+import ExitUpdateButton from "./ExitUpdateButton";
 
 const InstrumentForm = () => {
 	// Data is bound to inputs dynamically.
@@ -7,7 +8,7 @@ const InstrumentForm = () => {
 	const [instrument, setInstrument] = useState("");
 	const [owner, setOwner] = useState("");
 	const [complete, setComplete] = useState(false);
-	const [cost, setCost] = useState<number>(150.00);
+	const [cost, setCost] = useState<number>(150.0);
 
 	const CRUD = useContext(CRUDContext);
 
@@ -17,8 +18,8 @@ const InstrumentForm = () => {
 		setInstrument("");
 		setOwner("");
 		setComplete(false);
-		setCost(150.00);
-	}
+		setCost(150.0);
+	};
 
 	const submitForm = () => {
 		const formInstrument = { instrument, owner, complete, cost };
@@ -54,41 +55,46 @@ const InstrumentForm = () => {
 				submitForm();
 			}}
 		>
-			<input
-				type="text"
-				name="instrument"
-				placeholder="Instrument"
-				value={instrument}
-				onChange={e => setInstrument(e.target.value)}
-				required
-			/>
-			<input
-				type="text"
-				name="owner"
-				placeholder="Owner"
-				value={owner}
-				onChange={e => setOwner(e.target.value)}
-				required
-			/>
-			<div className="container">
+			<div className="inputs">
 				<input
-					type="checkbox"
-					name="complete"
-					checked={complete}
-					onChange={() => setComplete(!complete)}
+					type="text"
+					name="instrument"
+					placeholder="Instrument"
+					value={instrument}
+					onChange={e => setInstrument(e.target.value)}
+					required
 				/>
-				<label htmlFor="complete">Complete?</label>
+				<input
+					type="text"
+					name="owner"
+					placeholder="Owner"
+					value={owner}
+					onChange={e => setOwner(e.target.value)}
+					required
+				/>
+				<div className="container">
+					<input type="checkbox" name="complete" checked={complete} onChange={() => setComplete(!complete)} />
+					<label htmlFor="complete">Complete?</label>
+				</div>
+				<div className="container">
+					<label htmlFor="cost">$</label>
+					<input
+						type="number"
+						name="cost"
+						step={0.01}
+						placeholder="ex. 150.00"
+						value={cost}
+						onChange={e => setCost(parseFloat(e.target.value))}
+						required
+					/>
+				</div>
 			</div>
 			<input
-				type="number"
-				name="cost"
-				step={0.01}
-				placeholder="ex. $150.00"
-				value={cost}
-				onChange={e => setCost(parseFloat(e.target.value))}
-				required
+				type="submit"
+				value={CRUD.updateTarget ? "UPDATE" : "SUBMIT"}
+				className={CRUD.updateTarget ? "update" : ""}
 			/>
-			<input type="submit" value={CRUD.updateTarget ? "UPDATE" : "SUBMIT"} className={CRUD.updateTarget ? "update" : ""}/>
+			<ExitUpdateButton />
 		</form>
 	);
 };

@@ -53,7 +53,6 @@ const App = () => {
 			<CRUDContext.Provider value={CRUD}>
 				<h1>Instrument Refurbishing Orders</h1>
 				<InstrumentForm />
-				<ExitUpdateButton />
 				<InstrumentTable instruments={instruments} />
 			</CRUDContext.Provider>
 		</div>

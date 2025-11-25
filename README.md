@@ -26,8 +26,10 @@ you may have to run **`npm install`** for the dependencies to appear.*
 
 - Project written in **<ins>TypeScript/TSX</ins>**, as opposed to JavaScript/JSX.
 
-- Web application is broken down into different components.
+- Web application is broken down into different components. Code includes ECMAScript modules.
 
 - Update targets are not passed into components via props. Instead, components react to a global target with **`useContext()`** by invoking code placed in **`useEffect()`**.
 
 - Form data is directly ***bound***. This means that related variables update in real time.
+
+- Documentation

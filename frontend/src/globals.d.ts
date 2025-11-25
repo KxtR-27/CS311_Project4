@@ -1,3 +1,6 @@
+/** Custom object types for TypeScript
+ * These types are available in all files `src/*`
+ */
 declare global {
 	interface Instrument {
 		instrument: string;

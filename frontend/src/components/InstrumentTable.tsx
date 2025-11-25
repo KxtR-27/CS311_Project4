@@ -1,6 +1,7 @@
 import TableEntry from "./TableEntry";
 import "./InstrumentTable.css";
 
+/** A component holding a table element that automatically updates its rows for each document. */
 const InstrumentTable = ({ instruments }: { instruments: InstrumentWithID[] }) => {
 	return (
 		<table className="instrument-table">

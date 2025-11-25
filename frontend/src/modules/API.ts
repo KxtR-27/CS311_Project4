@@ -1,8 +1,6 @@
 const BASE_URL = "http://localhost:8080";
 
-// the line `.then(data => /* return */ data)` basically makes the code wait for `response.text()` to resolve
-// not catching here because it's important for the App to handle the error
-
+/** Create a MongoDB document */
 const fetchCreate = async (instrument: Instrument) => {
 	const response = await fetch(`${BASE_URL}/create`, {
 		method: "POST",
@@ -13,12 +11,14 @@ const fetchCreate = async (instrument: Instrument) => {
 	return data;
 };
 
+/** Read all MongoDB documents */
 const fetchRead = async () => {
 	const response = await fetch(`${BASE_URL}/read`);
 	const data = await response.json();
 	return data;
 };
 
+/** Update a MongoDB document with matching ID */
 const fetchUpdate = async ({ instrument, owner, complete, cost }: Instrument, id: string) => {
 	const response = await fetch(`${BASE_URL}/update`, {
 		method: "POST",
@@ -29,6 +29,7 @@ const fetchUpdate = async ({ instrument, owner, complete, cost }: Instrument, id
 	return data;
 };
 
+/** Delete a MongoDB document with matching ID */
 const fetchDelete = async (id: string) => {
 	const response = await fetch(`${BASE_URL}/delete`, {
 		method: "POST",
@@ -39,6 +40,7 @@ const fetchDelete = async (id: string) => {
 	return data;
 };
 
+/** construct module object */
 const API = {
 	create: fetchCreate,
 	read: fetchRead,

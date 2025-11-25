@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+/* Apparently, these variables become accessible in any script. */
+:root {
+	--base-color: white;
+	--surface-color: whitesmoke;
+
+	--update-color: orange;
+	--delete-color: tomato;
+	--submit-color: limegreen;
+}
+
+html {
+	background-color: var(--base-color);
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -10,7 +24,7 @@
 	box-sizing: border-box;
 }
 
-#root ~ * {
+#root~* {
 	visibility: hidden;
 	width: 0;
 	height: 0;

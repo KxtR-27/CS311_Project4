@@ -1,0 +1,43 @@
+.instrument-form {
+    padding: 1rem;
+    border: 1px dashed black;
+    border-radius: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.instrument-form div.inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.instrument-form label {
+    margin-left: 0.25em;
+}
+
+.instrument-form input[type="text"],
+.instrument-form input[type="number"] {
+    padding: 0.1em 0.25em;
+}
+
+.instrument-form input[type="number"] {
+    padding-left: 1.5em;
+    padding-right: 0;
+}
+
+.instrument-form input[type="submit"] {
+    background-color: var(--submit-color);
+}
+
+.instrument-form input[type="submit"].update {
+    background-color: var(--update-color);
+}
+
+.instrument-form label[for="cost"] {
+    right: -1em;
+    z-index: 1;
+}

@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
-import CRUDContext from "./CRUDContext";
 import ExitUpdateButton from "./ExitUpdateButton";
+import CRUDContext from "../modules/CRUDContext.ts";
+import "./InstrumentForm.css"
 
 const InstrumentForm = () => {
 	// Data is bound to inputs dynamically.

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import InstrumentForm from "./components/InstrumentForm";
 import InstrumentTable from "./components/InstrumentTable";
-import CRUDContext from "./components/CRUDContext";
-import API from "./API";
+import CRUDContext from "./modules/CRUDContext.ts";
+import API from "./modules/API.ts";
 import "./App.css";
 
 const App = () => {

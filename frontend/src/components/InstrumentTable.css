@@ -1,0 +1,14 @@
+.instrument-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: whitesmoke;
+}
+
+th, td {
+    padding: 0.5em 0.1em;
+    border-width: 0;
+    text-align: center;
+}

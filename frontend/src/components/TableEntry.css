@@ -1,0 +1,30 @@
+.table-entry {
+    border-top: 2px solid black;
+}
+
+.table-entry:not(.table-entry:last-of-type) {
+    border-bottom: 2px solid black;
+}
+
+.table-entry button {
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+td.action {
+    width: min-content;
+    padding-right: 0.5rem;
+}
+
+td.action button + button {
+    margin-left: 0.25rem;
+}
+
+button.update {
+    background-color: var(--update-color);
+}
+
+button.delete {
+    background-color: var(--delete-color);
+}

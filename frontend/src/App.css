@@ -9,6 +9,15 @@ body {
     margin: auto;
 }
 
+/* *** App *** */
+.app > * {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    margin-top: 0.25rem;
+}
+
 button, input[type="submit"] {
     padding: 0.25em 0.5em;
     border: none;
@@ -22,113 +31,4 @@ button, input[type="submit"] {
 
 button:hover, input[type="submit"]:hover {
     filter: brightness(110%);
-}
-
-
-
-/* *** App *** */
-.app > * {
-    margin-bottom: 1rem;
-}
-
-h1 {
-    margin-top: 0.25rem;
-}
-
-/* *** IntrumentForm *** */
-.instrument-form {
-    padding: 1rem;
-    border: 1px dashed black;
-    border-radius: 1rem;
-
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.instrument-form div.inputs {
-    display: flex;
-    gap: 1rem;
-}
-
-.instrument-form label {
-    margin-left: 0.25em;
-}
-
-.instrument-form input[type="text"],
-.instrument-form input[type="number"] {
-    padding: 0.1em 0.25em;
-}
-
-.instrument-form input[type="number"] {
-    padding-left: 1.5em;
-    padding-right: 0;
-}
-
-.instrument-form input[type="submit"] {
-    background-color: var(--submit-color);
-}
-
-.instrument-form input[type="submit"].update {
-    background-color: var(--update-color);
-}
-
-.instrument-form label[for="cost"] {
-    right: -1em;
-    z-index: 1;
-}
-
-/* *** ExitUpdateButton *** */
-.exit-update-button {
-    background-color: slategray;
-    flex-basis: 33%;
-}
-
-/* *** InstrumentTable *** */
-.instrument-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-tbody tr:nth-of-type(odd) {
-    background-color: whitesmoke;
-}
-
-th, td {
-    padding: 0.5em 0.1em;
-    border-width: 0;
-    text-align: center;
-}
-
-/* *** TableEntry *** */
-.table-entry {
-    border-top: 2px solid black;
-}
-
-.table-entry:not(.table-entry:last-of-type) {
-    border-bottom: 2px solid black;
-}
-
-.table-entry button {
-    color: white;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-td.action {
-    width: min-content;
-    padding-right: 0.5rem;
-}
-
-td.action button + button {
-    margin-left: 0.25rem;
-}
-
-button.update {
-    background-color: var(--update-color);
-}
-
-button.delete {
-    background-color: var(--delete-color);
 }

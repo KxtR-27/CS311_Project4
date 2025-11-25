@@ -1,4 +1,5 @@
 import TableEntry from "./TableEntry";
+import "./InstrumentTable.css";
 
 const InstrumentTable = ({ instruments }: { instruments: InstrumentWithID[] }) => {
 	return (

@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import CRUDContext from "./CRUDContext";
+import CRUDContext from "../modules/CRUDContext.ts";
+import "./ExitUpdateButton.css"
 
 const ExitUpdateButton = () => {
 	const CRUD = useContext(CRUDContext);

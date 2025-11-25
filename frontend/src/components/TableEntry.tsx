@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import CRUDContext from "./CRUDContext";
+import CRUDContext from "../modules/CRUDContext.ts";
+import "./TableEntry.css"
 
 const TableEntry = ({ instrument }: { instrument: InstrumentWithID }) => {
 	const CRUD = useContext(CRUDContext);

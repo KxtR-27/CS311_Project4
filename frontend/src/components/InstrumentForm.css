@@ -15,6 +15,11 @@
     gap: 1rem;
 }
 
+.instrument-form .inputs .container,
+.instrument-form .inputs .container>* {
+    cursor: pointer;
+}
+
 .instrument-form label {
     margin-left: 0.25em;
 }

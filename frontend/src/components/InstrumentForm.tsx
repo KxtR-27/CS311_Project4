@@ -90,18 +90,14 @@ const InstrumentForm = () => {
 					onChange={e => setOwner(e.target.value)}
 					required
 				/>
-				<div className="container">
-					<input
-						type="checkbox"
-						name="complete"
-						checked={complete}
-						onChange={
-							/* Matching the checkbox's `checked` attribute directly
-							 * has no effect because of data binding.
-							 */
-							() => setComplete(!complete)
-						}
-					/>
+				<div
+					className="container"
+					/* Matching the checkbox's `checked` attribute directly
+					 * has no effect because of data binding.
+					 */
+					onClick={() => setComplete(!complete)}
+				>
+					<input type="checkbox" name="complete" checked={complete} onChange={() => setComplete(!complete)} />
 					<label htmlFor="complete">Complete?</label>
 				</div>
 				<div className="container">
